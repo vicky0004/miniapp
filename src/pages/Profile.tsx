@@ -17,6 +17,10 @@ function Profile() {
   return (
     <div>
       <h2>Profile</h2>
+      <p>Status: {isInstalled ? "SDK is installed" : "SDK is not installed"}</p>
+      <p>Identity:</p>
+      <p>{identity ? "Identity found in local storage." : "No identity found."}</p> 
+      <p>{JSON.stringify(identity)}</p>
       {isInstalled && identity ? (
         <>
           <p><strong>DID:</strong> {identity.did}</p>
