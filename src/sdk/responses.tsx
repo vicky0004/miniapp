@@ -28,7 +28,7 @@ export type MiniAppPaymentPayload =
 export type MiniAppInitSuccessPayload = {
   status: string;
   did?: string;
-  w3name?: string;
+  w3Name?: string;
 }
 export type MiniAppInitErrorPayload = {
   status: string;

@@ -202,7 +202,7 @@ export class MiniKit {
       }
 
       MiniKit.isReady = true;
-      return { success: true };
+      return { success: true, initResult: initResult };
     } catch (error) {
       alert(error);
       return {

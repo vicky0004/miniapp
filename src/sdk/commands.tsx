@@ -1,5 +1,6 @@
 import { Tokens, Network } from "./payments";
 import {MiniKitInstallErrorCodes, MiniKitInstallErrorMessage} from "./errors";
+import type { MiniAppInitSuccessPayload } from "./responses";
 export enum Command {
   Pay = 'pay',
   init= 'init',
@@ -42,7 +43,7 @@ export type AsyncHandlerReturn<CommandPayload, FinalPayload> = Promise<{
 }>;
 
 export type MiniKitInstallReturnType =
-  | { success: true }
+  | { success: true, initResult: MiniAppInitSuccessPayload }
   | {
       success: false;
       errorCode: MiniKitInstallErrorCodes;
