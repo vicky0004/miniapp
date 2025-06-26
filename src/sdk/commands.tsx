@@ -11,7 +11,7 @@ export type WebViewBasePayload = {
 };
 
 export type PayCommandInput = {
-  amount: string;
+  amount: number;
   to: string; // wallet Address or web3name
   tip: number;
   fee: number;

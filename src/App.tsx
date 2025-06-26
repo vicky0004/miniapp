@@ -1,18 +1,24 @@
-// import { callParentFunction } from './sdk/send-event';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useMiniKit } from './sdk/sdk-provider';
+import Profile from './pages/Profile';
+import Payment from './pages/Payment';
 
 function App() {
   const { isInstalled } = useMiniKit();
+
   return (
-    <>
-      <h1>Mini-App {isInstalled ? "  sdk installed":"sdk not installed"}</h1>
-      <div className="card">
-        {/* <button onClick={() => callParentFunction(JSON.stringify({ command: 'pay', paylod: 'open camera' }))}>
-          
-        </button> */}
-      </div>
-    </>
+    <Router>
+      <h1>Mini-App {isInstalled ? "sdk installed" : "sdk not installed"}</h1>
+      <nav style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+        <Link to="/profile">Profile</Link>
+        <Link to="/payment">Payment</Link>
+      </nav>
+      <Routes>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/payment" element={<Payment />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -214,24 +214,21 @@ export class MiniKit {
   }
 
   public static isInstalled(): boolean {
-    const isInstalled = MiniKit.isReady;
+
+    let isInstalled = MiniKit.isReady;
     if (!isInstalled) {
       console.error("MiniKit is not installed. Make sure you're running inside Sporran App");
+    }
+    if (typeof window === 'undefined') {
+      isInstalled = false;
+      console.error("'pay' command unavailable: window not defined");
+      return isInstalled;
     }
     return isInstalled;
   }
 
   public static commands = {
     pay: (payload: PayCommandInput): PayCommandPayload | null => {
-      if (typeof window === 'undefined') {
-        console.error("'pay' command unavailable: window not defined");
-        return null;
-      }
-
-      if (!MiniKit.isInstalled()) {
-        console.error("'pay' command unavailable: MiniKit not installed");
-        return null;
-      }
 
       // Validate payload
       if (!validatePaymentPayload(payload)) {
@@ -261,6 +258,11 @@ export class MiniKit {
     pay: async (
       payload: PayCommandInput,
     ): AsyncHandlerReturn<PayCommandPayload | null, MiniAppPaymentPayload> => {
+      if (!MiniKit.isInstalled()) {
+        console.error("'pay' command unavailable: MiniKit not installed");
+        return Promise.reject(new Error('MiniKit not installed'));
+      }
+
       try {
         return await MiniKit.awaitCommand(
           ResponseEvent.MiniAppPayment,
