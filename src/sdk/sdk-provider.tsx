@@ -20,13 +20,11 @@ export const MiniKitProvider: React.FC<MiniKitProviderProps> = ({ appId, childre
 
   useEffect(() => {
     const installMiniKit = async () => {
-      // alert(MiniKit.isInstalled() ? 'MiniKit is already installed.' : 'Installing MiniKit...');
-      const result = await MiniKit.install(appId);
-      // alert(`MiniKit installation result: ${JSON.stringify(result)}`);
+      const result = await MiniKit.install(appId ?? 'unknown-app-id');
       if (result.success) {
         setIsInstalled(true);
       } else {
-        alert('MiniKit installation failed:');
+        alert('MiniKit installation failed.');
       }
     };
     installMiniKit();

@@ -62,7 +62,7 @@ export class MiniKit {
   public static deviceProperties: DeviceProperties = {};
   private static isReady: boolean = false;
 
-  private static async sendInit(): Promise<MiniAppInitPayload> {
+  private static async sendInit(appId: string): Promise<MiniAppInitPayload> {
     const result = await this.awaitCommand(
       ResponseEvent.Init,
       Command.init,
@@ -70,6 +70,7 @@ export class MiniKit {
         sendWebviewEvent({
           command: 'init',
           payload: {
+            appid: appId,
             version: this.MINIKIT_VERSION,
             minorVersion: this.MINIKIT_MINOR_VERSION,
           },
@@ -142,7 +143,7 @@ export class MiniKit {
     });
   }
 
-  public static async install(appId?: string): Promise<MiniKitInstallReturnType> {
+  public static async install(appId: string): Promise<MiniKitInstallReturnType> {
     // Check if already installed
     if (typeof window === 'undefined' || Boolean(window.MiniKit)) {
       return {
@@ -190,7 +191,7 @@ export class MiniKit {
         SporranAppVersion: window.SporranApp.version ?? 0,
       };
       window.MiniKit = MiniKit;
-      const initResult = await this.sendInit();
+      const initResult = await this.sendInit(appId);
       if (initResult?.status !== 'success') {
         console.error('Init failed:', initResult);
         return {
