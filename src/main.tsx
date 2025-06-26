@@ -6,7 +6,7 @@ import { MiniKitProvider } from './sdk/sdk-provider';
 
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
-    <MiniKitProvider appId="app-1234567890abcdef">
+    <MiniKitProvider appId="123ab">
       <App />
     </MiniKitProvider>
   // </StrictMode>,
