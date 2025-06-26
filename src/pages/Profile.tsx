@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 function Profile() {
   const { isInstalled } = useMiniKit();
-  const [identity, setIdentity] = useState<{ did: string; w3Name: string; address: string } | null>(null);
+  const [identity, setIdentity] = useState<{ did: string; web3Name: string; address: string } | null>(null);
 
   useEffect(() => {
     if (isInstalled) {
@@ -17,15 +17,11 @@ function Profile() {
   return (
     <div>
       <h2>Profile</h2>
-      <p>Status: {isInstalled ? "SDK is installed" : "SDK is not installed"}</p>
-      <p>Identity:</p>
-      <p>{identity ? "Identity found in local storage." : "No identity found."}</p> 
-      <p>{JSON.stringify(identity)}</p>
       {isInstalled && identity ? (
         <>
           <p><strong>DID:</strong> {identity.did}</p>
           <p><strong>Address:</strong> {identity.address}</p>
-          <p><strong>Web3 Name:</strong> {identity.w3Name}</p>
+          <p><strong>Web3 Name:</strong> {identity.web3Name}</p>
         </>
       ) : (
         <p>SDK not installed.</p>

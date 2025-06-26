@@ -26,7 +26,7 @@ export type PayCommandPayload = PayCommandInput;
 export type InitCommandPayload = {
   status?: string;
   did?: string;
-  w3name?: string;
+  web3name?: string;
   message?: string;
 };
 
