@@ -22,6 +22,7 @@ export const MiniKitProvider: React.FC<MiniKitProviderProps> = ({ appId, childre
     const installMiniKit = async () => {
       const result = await MiniKit.install(appId ?? 'unknown-app-id');
       if (result.success) {
+        alert('MiniKit installed successfully:'+ JSON.stringify(result));
         const { did, w3Name } = result.initResult || {};
         if (did && w3Name) {
           const identity = {
