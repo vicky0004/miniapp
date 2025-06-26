@@ -12,7 +12,7 @@ function Payment() {
   });
   const [status, setStatus] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e : any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -29,7 +29,7 @@ function Payment() {
 
     try {
       const result = await MiniKit.commandsAsync.pay(paymentPayload);
-      if (result.status === 'success') {
+      if (result.finalPayload.status === 'success') {
         setStatus('✅ Payment successful!');
       } else {
         setStatus('❌ Payment failed!');

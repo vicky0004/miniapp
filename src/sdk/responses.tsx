@@ -5,7 +5,7 @@ export enum ResponseEvent {
 import { Network } from './payments';
 import { PaymentErrorCodes } from './errors';
 export type MiniAppPaymentSuccessPayload = {
-  status: 'success';
+  status: string;
   transaction_status: 'submitted';
   transaction_id: string;
   reference: string;
@@ -16,7 +16,7 @@ export type MiniAppPaymentSuccessPayload = {
 };
 
 export type MiniAppPaymentErrorPayload = {
-  status: 'error';
+  status: string;
   error_code: PaymentErrorCodes;
   version: number;
 };
