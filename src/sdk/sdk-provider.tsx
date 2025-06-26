@@ -29,6 +29,7 @@ export const MiniKitProvider: React.FC<MiniKitProviderProps> = ({ appId, childre
             w3Name,
             address: did
           };
+          alert("identity created in mini = "+identity);
           localStorage.setItem("identity", JSON.stringify(identity));
         }
         setIsInstalled(true);
