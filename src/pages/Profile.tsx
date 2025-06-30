@@ -24,7 +24,7 @@ function Profile() {
           <p><strong>Web3 Name:</strong> {identity.web3Name}</p>
         </>
       ) : (
-        <p>SDK not installed.</p>
+        <p>Profile not found.</p>
       )}
     </div>
   );
