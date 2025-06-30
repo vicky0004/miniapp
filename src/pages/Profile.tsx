@@ -19,9 +19,11 @@ function Profile() {
       <h2>Profile</h2>
       {isInstalled && identity ? (
         <>
-          <p><strong>DID:</strong> {identity.did}</p>
-          <p><strong>Address:</strong> {identity.address}</p>
+          <p><strong>email: </strong> vicky@gmail.com</p>
+          <p><strong>username:</strong> vicky kumar</p>
           <p><strong>Web3 Name:</strong> {identity.web3Name}</p>
+          <p><strong>DID:</strong> {identity.did}</p>
+          {/* <p><strong>Address:</strong> {identity.address}</p> */}
         </>
       ) : (
         <p>Profile not found.</p>
