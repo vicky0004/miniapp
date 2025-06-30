@@ -1,4 +1,4 @@
-import { useMiniKit } from "../sdk/sdk-provider";
+import { useMiniKit } from "sdk-sporran-test/minikit-provider"; 
 import { useEffect, useState } from "react";
 
 function Profile() {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import {MiniKit} from "../sdk/minikit";
-import { Tokens, Network } from "../sdk/payments";
-import { type PayCommandInput } from '../sdk/commands';
+import {MiniKit} from "sdk-sporran-test";
+import { Tokens, Network } from "sdk-sporran-test";
+import { type PayCommandInput } from 'sdk-sporran-test';
 function Payment() {
   const [form, setForm] = useState({
     to: '',

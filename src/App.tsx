@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useMiniKit } from './sdk/sdk-provider';
+import { useMiniKit } from 'sdk-sporran-test/minikit-provider';
 import Profile from './pages/Profile';
 import Payment from './pages/Payment';
 
