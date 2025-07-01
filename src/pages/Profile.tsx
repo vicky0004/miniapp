@@ -1,18 +1,15 @@
 import { useMiniKit } from "sdk-sporran-test/minikit-provider"; 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function Profile() {
-  const { isInstalled } = useMiniKit();
-  const [identity, setIdentity] = useState<{ did: string; web3Name: string; address: string,name: string, email: string } | null>(null);
+  const { isInstalled, identity  } = useMiniKit();
 
   useEffect(() => {
     if (isInstalled) {
-      const storedIdentity = localStorage.getItem("identity");
-      if (storedIdentity) {
-        setIdentity(JSON.parse(storedIdentity));
-      }
+      console.log("MiniKit is installed.");
+      console.log("Identity:", identity);
     }
-  }, [isInstalled]);
+  }, [isInstalled, identity]);
 
   return (
     <div>
