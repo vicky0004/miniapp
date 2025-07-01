@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 function Profile() {
   const { isInstalled } = useMiniKit();
-  const [identity, setIdentity] = useState<{ did: string; web3Name: string; address: string } | null>(null);
+  const [identity, setIdentity] = useState<{ did: string; web3Name: string; address: string,name: string, email: string } | null>(null);
 
   useEffect(() => {
     if (isInstalled) {
@@ -19,10 +19,10 @@ function Profile() {
       <h2>Profile</h2>
       {isInstalled && identity ? (
         <>
-          <p><strong>email: </strong> vicky@gmail.com</p>
-          <p><strong>username:</strong> vicky kumar</p>
-          <p><strong>Web3 Name:</strong> {identity.web3Name}</p>
-          <p><strong>DID:</strong> {identity.did}</p>
+          <p><strong>Name: </strong>{identity.email}</p>
+          <p><strong>Email: </strong> {identity.name}</p>
+          <p><strong>Web3 Name: </strong> {identity.web3Name}</p>
+          <p><strong>DID: </strong> {identity.did}</p>
           {/* <p><strong>Address:</strong> {identity.address}</p> */}
         </>
       ) : (
