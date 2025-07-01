@@ -19,6 +19,14 @@ function Payment() {
   };
 
   const handlePay = async () => {
+
+    const { to, amount, tip, fee, description } = form;
+
+    if (!to || !amount || !tip || !fee || !description) {
+      alert('⚠️ Please fill in all fields before proceeding.');
+      return;
+    }
+
     const paymentPayload: PayCommandInput = {
       to: form.to,
       amount: parseFloat(form.amount),
