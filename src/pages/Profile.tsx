@@ -1,8 +1,9 @@
-import { useMiniKit } from "sdk-sporran-test/minikit-provider"; 
+import { useMiniKit } from "sdk-sporran-test/minikit-provider";
 import { useEffect } from "react";
+import styles from './Profile.module.css';
 
 function Profile() {
-  const { isInstalled, identity  } = useMiniKit();
+  const { isInstalled, identity } = useMiniKit();
 
   useEffect(() => {
     if (isInstalled) {
@@ -12,18 +13,17 @@ function Profile() {
   }, [isInstalled, identity]);
 
   return (
-    <div>
-      <h2>Profile</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Profile</h2>
       {isInstalled && identity ? (
-        <>
-          <p><strong>Name: </strong>{identity.name}</p>
-          <p><strong>Email: </strong> {identity.email}</p>
-          <p><strong>Web3 Name: </strong> {identity.web3Name}</p>
-          <p><strong>DID: </strong> {identity.did}</p>
-          {/* <p><strong>Address:</strong> {identity.address}</p> */}
-        </>
+        <div className={styles.details}>
+          <p><strong>Name:</strong> {identity.name}</p>
+          <p><strong>Email:</strong> {identity.email}</p>
+          <p><strong>Web3 Name:</strong> {identity.web3Name}</p>
+          <p className={styles.did}><strong>DID:</strong> {identity.did}</p>
+        </div>
       ) : (
-        <p>Profile not found.</p>
+        <p className={styles.notFound}>Profile not found.</p>
       )}
     </div>
   );
