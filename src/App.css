@@ -40,3 +40,28 @@
 .read-the-docs {
   color: #888;
 }
+.tab_button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 8px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  background-color: #f0f0f0;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab_button:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.tab_button.active {
+  background-color: #fff;
+  color: #000;
+  border-bottom: 1px solid #fff;
+  font-weight: bold;
+}

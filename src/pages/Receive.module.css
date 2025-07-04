@@ -1,0 +1,40 @@
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.title {
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+.details p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #444;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left; /* Ensure each line is left-aligned */
+}
+
+.did {
+  font-size: 13px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.notFound {
+  color: #999;
+  font-style: italic;
+  text-align: left;
+}
