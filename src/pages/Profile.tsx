@@ -20,8 +20,8 @@ function Profile() {
           <p><strong>Name:</strong> {identity.name}</p>
           <p><strong>Email:</strong> {identity.email}</p>
           <p><strong>Web3 Name:</strong> {identity.web3Name}</p>
-          <p className={styles.did}><strong>DID:</strong> {identity.did}</p>
-          <p><strong>WalletAddress:</strong>{identity.walletAddress}</p>
+          <p className={styles.longtext}><strong>DID:</strong> {identity.did}</p>
+          <p className={styles.longtext}><strong>WalletAddress:</strong>{identity.walletAddress}</p>
         </div>
       ) : (
         <p className={styles.notFound}>Profile not found.</p>

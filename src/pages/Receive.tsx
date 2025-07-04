@@ -17,7 +17,7 @@ function Profile() {
       <h2 className={styles.title}>Receive Credentials</h2>
       {isInstalled && identity ? (
         <div className={styles.details}>
-          <p><strong>WalletAddress: </strong>{identity.walletAddress}</p>
+          <p className={styles.longtext}><strong>WalletAddress: </strong>{identity.walletAddress}</p>
         </div>
       ) : (
         <p className={styles.notFound}>Profile not found.</p>
