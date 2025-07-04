@@ -3,8 +3,10 @@ import {MiniKit} from "sdk-sporran-test";
 import { Tokens, Network } from "sdk-sporran-test";
 import { type PayCommandInput } from 'sdk-sporran-test';
 import styles from './Payment.module.css'; 
+import { useMiniKit } from 'sdk-sporran-test/minikit-provider';
 
 function Payment() {
+  const { isInstalled, identity } = useMiniKit();
   const [form, setForm] = useState({
     to: '',
     amount: '',
@@ -52,14 +54,20 @@ function Payment() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Payment</h2>
-      <input name="to" placeholder="Reciever's Address" onChange={handleChange} type="text" className={styles.input} />
-      <input name="amount" placeholder="Amount" onChange={handleChange} type="number" className={styles.input} />
-      <input name="tip" placeholder="Tip (Optional)"  onChange={handleChange} type="number" className={styles.input} />
-      <input name="fee" placeholder="Fee (Optional)" onChange={handleChange} type="number" className={styles.input} />
-      {/* <input name="description" placeholder="Description" onChange={handleChange} className={styles.input} /> */}
-      <button onClick={handlePay} className={styles.button}>Pay</button>
-      <p className={styles.status}>Status: {status}</p>
+      {isInstalled && identity ? (
+        <>
+          <h2 className={styles.title}>Payment</h2>
+          <input name="to" placeholder="Reciever's Address" onChange={handleChange} type="text" className={styles.input} />
+          <input name="amount" placeholder="Amount" onChange={handleChange} type="number" className={styles.input} />
+          <input name="tip" placeholder="Tip (Optional)"  onChange={handleChange} type="number" className={styles.input} />
+          <input name="fee" placeholder="Fee (Optional)" onChange={handleChange} type="number" className={styles.input} />
+          {/* <input name="description" placeholder="Description" onChange={handleChange} className={styles.input} /> */}
+          <button onClick={handlePay} className={styles.button}>Pay</button>
+          <p className={styles.status}>Status: {status}</p>
+        </>
+      ):(
+        <p className={styles.notFound}>Sdk not installed.</p>
+      )}
     </div>
   );
 }
