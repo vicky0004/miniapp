@@ -42,16 +42,17 @@
 }
 .tab_button {
   display: inline-block;
-  padding: 10px 20px;
-  margin-right: 8px;
-  font-size: 16px;
+  padding: 6px 12px; /* Reduced padding */
+  margin-right: 6px;
+  font-size: 14px; /* <= 16px to prevent auto-zoom on iOS */
   color: #333;
   text-decoration: none;
   background-color: #f0f0f0;
-  border-radius: 8px 8px 0 0;
+  border-radius: 6px 6px 0 0;
   border: 1px solid #ccc;
   border-bottom: none;
   transition: background-color 0.3s, color 0.3s;
+  -webkit-text-size-adjust: 100%; /* Prevents font scaling */
 }
 
 .tab_button:hover {
@@ -63,5 +64,6 @@
   background-color: #fff;
   color: #000;
   border-bottom: 1px solid #fff;
-  font-weight: bold;
+  font-weight: 600;
 }
+
